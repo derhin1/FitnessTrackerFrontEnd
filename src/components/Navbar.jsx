@@ -9,9 +9,12 @@ const Navbar = ({ loginState, setLoginState }) => {
       <h2> Fitness Tracker </h2>
       <Link to="../Home">Home</Link>
       <Link to="../Routines">Routines</Link>
-      <Link to="../MyRoutines">My Routines</Link>
       <Link to="../Activities">Activities</Link>
-      {loginState ? null : <Link to="../Login">Login</Link>}
+      {loginState ? (
+        <Link to="../MyRoutines">My Routines</Link>
+      ) : (
+        <Link to="../Login">Login</Link>
+      )}
       {loginState ? (
         <form
           onSubmit={() => {

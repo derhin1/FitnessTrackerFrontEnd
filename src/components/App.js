@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Navbar, Login, Register } from "./";
+import { Navbar, Login, Register, Routines } from "./";
 const App = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +37,9 @@ const App = () => {
             password={password}
             setPassword={setPassword}
           />
+        </Route>
+        <Route path="/Routines">
+          <Routines />
         </Route>
       </Switch>
     </div>
