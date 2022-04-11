@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import { register } from "../api";
+import { useHistory } from "react-router-dom";
 
 const Register = ({username, setUsername, password, setPassword}) => {
+    const history = useHistory ()
     const [confirmPassword, setConfirmPassword] = useState('')
     const [validated, setValidated] = useState(false)
     const [passwordLength, setPasswordLength] = useState(false)
@@ -12,6 +14,9 @@ const Register = ({username, setUsername, password, setPassword}) => {
         if (password === confirmPassword){
           setValidated (false)
           getToken ()
+          history.push( '/Login ')
+          setUsername ( "" )
+          setPassword ( "" )
         }else{
           setValidated (true)
         }
