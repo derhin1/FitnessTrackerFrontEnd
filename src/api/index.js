@@ -55,7 +55,9 @@ export const getAllPublicRoutines = async () => {
     );
     const data = await response.json();
     return data;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const getAllActivities = async () => {
@@ -70,5 +72,31 @@ export const getAllActivities = async () => {
     );
     const data = await response.json();
     return data;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const postNewRoutine = async (name, goal, token) => {
+  try {
+    let response = await fetch(
+      "http://fitnesstrac-kr.herokuapp.com/api/routines",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          name,
+          goal,
+          isPublic: true,
+        }),
+      }
+    );
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
 };
