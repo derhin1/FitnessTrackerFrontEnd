@@ -100,3 +100,24 @@ export const postNewRoutine = async (name, goal, token) => {
     throw error;
   }
 };
+
+export const getMe = async (token) => {
+  try {
+    let response = await fetch(
+      "http://fitnesstrac-kr.herokuapp.com/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+      }
+    );
+    let data = await response.json () 
+    console.log(data, token)
+    return data 
+    
+  } catch (error) {
+    throw error
+    
+  }
+}

@@ -10,7 +10,7 @@ const SingleRoutine = ({ routine }) => {
         Activities:{" "}
         {routine.activities.map((activity, i) => {
           return (
-            <div>
+            <div key={activity.id}>
               <span>Name: {activity.name}</span>
               <span>Description: {activity.description}</span>
               <span>Duration: {activity.duration}</span>
