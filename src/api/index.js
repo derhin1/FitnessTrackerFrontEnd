@@ -57,3 +57,18 @@ export const getAllPublicRoutines = async () => {
     return data;
   } catch (error) {}
 };
+
+export const getAllActivities = async () => {
+  try {
+    let response = await fetch(
+      "http://fitnesstrac-kr.herokuapp.com/api/activities",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {}
+};
