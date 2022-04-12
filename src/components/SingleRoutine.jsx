@@ -8,8 +8,7 @@ const SingleRoutine = ({ routine }) => {
       <span>By: {routine.creatorName}</span>
       <span>
         Activities:{" "}
-        {routine.activities.map((activity) => {
-          console.log(activity);
+        {routine.activities.map((activity) => {     
           return (
             <div>
               <span>Name: {activity.name}</span>

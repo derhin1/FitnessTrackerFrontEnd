@@ -39,7 +39,7 @@ const App = () => {
           />
         </Route>
         <Route path="/Routines">
-          <Routines />
+          <Routines loginState={loginState}/>
         </Route>
         <Route path="/Activities">
           <Activities />
