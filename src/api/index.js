@@ -108,16 +108,13 @@ export const getMe = async (token) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       }
     );
-    let data = await response.json () 
-    console.log(data, token)
-    return data 
-    
+    let data = await response.json();
+    return data;
   } catch (error) {
-    throw error
-    
+    throw error;
   }
-}
+};
