@@ -84,10 +84,6 @@ const MyRoutines = ({ loginState }) => {
     );
   }
 
-  function handleDelete() {
-    return;
-  }
-
   useEffect(() => {
     loadRoutines();
   }, []);
