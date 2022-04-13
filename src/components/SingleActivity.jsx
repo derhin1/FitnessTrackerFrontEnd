@@ -4,7 +4,7 @@ const SingleActivity = ({ activity }) => {
   console.log(activity, "activity check");
   return (
     <div key={activity.id}>
-      <span>Acitivity: {activity.name}</span>
+      <span> Activity: {activity.name}</span>
       <span>Description: {activity.description}</span>
     </div>
   );
