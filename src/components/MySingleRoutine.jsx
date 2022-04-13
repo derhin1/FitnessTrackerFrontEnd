@@ -156,7 +156,7 @@ const MySingleRoutine = ({ routine }) => {
         {routine.activities.map((activity, i) => {
           return (
             <div key={activity.id}>
-              <span>Name: {activity.name}</span>
+              <span>Activity: {activity.name}</span>
               <span>Description: {activity.description}</span>
               <span>Duration: {activity.duration}</span>
               <span>Count: {activity.count}</span>
