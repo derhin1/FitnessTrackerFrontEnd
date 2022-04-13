@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import { register } from "../api";
 import { useHistory } from "react-router-dom";
-
 const Register = ({ username, setUsername, password, setPassword }) => {
   const history = useHistory();
   const [confirmPassword, setConfirmPassword] = useState("");
   const [validated, setValidated] = useState(false);
   const [passwordLength, setPasswordLength] = useState(false);
-
   function valid() {
     if (password.length >= 8) {
       setPasswordLength(false);
       if (password === confirmPassword) {
         setValidated(false);
         getToken();
-        history.push("/Login");
-        setUsername("");
-        setPassword("");
       } else {
         setValidated(true);
       }
@@ -26,13 +21,18 @@ const Register = ({ username, setUsername, password, setPassword }) => {
   }
 
   async function getToken() {
-    console.log(username, "username");
-    console.log(password, "password");
     const response = await register(username, password);
-    console.log(response.token, "response token");
-    {
-      response.token ? localStorage.setItem("token", response.token) : null;
+    if (response.error) {
+      setValidated(true);
+      return;
+    } else {
+      history.push("/Login");
+      setUsername("");
+      setPassword("");
     }
+    // {
+    //   response.token ? localStorage.setItem("token", response.token) : null;
+    // }
   }
 
   return (
@@ -67,8 +67,15 @@ const Register = ({ username, setUsername, password, setPassword }) => {
         placeholder="Confirm Password"
       ></input>
       <button type="submit"> Register </button>
-      {validated ? <div>Password don't match</div> : null}
-      {passwordLength ? <div> Password is too short</div> : null}
+      {validated ? (
+        <div>Passwords don't match or Username already exists.</div>
+      ) : null}
+      {passwordLength ? (
+        <div>
+          {" "}
+          Password is too short! It must be at least 8 characters long.
+        </div>
+      ) : null}
     </form>
   );
 };

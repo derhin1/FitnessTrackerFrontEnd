@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Navbar, Login, Register, Routines, Activities } from "./";
+import useAuth from "../hooks/useAuth";
 const App = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginState, setLoginState] = useState(false);
-
+  const { setToken } = useAuth();
   function initialLoginCheck() {
     if (localStorage.getItem("token")) {
       setLoginState(true);
@@ -16,6 +17,9 @@ const App = () => {
     initialLoginCheck();
   }, []);
 
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, [loginState]);
   return (
     <div>
       <Navbar setLoginState={setLoginState} loginState={loginState} />
@@ -39,7 +43,7 @@ const App = () => {
           />
         </Route>
         <Route path="/Routines">
-          <Routines loginState={loginState}/>
+          <Routines loginState={loginState} />
         </Route>
         <Route path="/Activities">
           <Activities />
