@@ -204,8 +204,34 @@ export const addActivityToRoutine = async (
       }
     );
     let data = await response.json();
-    console.log(activityId, count, duration);
-    console.log(data, "data");
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateRoutineActivity = async (
+  routineActivityId,
+  count,
+  duration,
+  token
+) => {
+  try {
+    let response = await fetch(
+      `http://fitnesstrac-kr.herokuapp.com/api/routine_activities/${routineActivityId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          count,
+          duration,
+        }),
+      }
+    );
+    let data = await response.json();
+    console.log(data, "get data");
   } catch (error) {
     throw error;
   }
