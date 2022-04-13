@@ -14,7 +14,6 @@ export const register = async (username, password) => {
       }
     );
     const data = await response.json();
-    console.log(data, "data");
     return data;
   } catch (error) {
     throw error;
@@ -130,7 +129,6 @@ export const getPublicRoutinesByUsername = async (username) => {
       }
     );
     let data = await response.json();
-    console.log(data, "data");
     return data;
   } catch (error) {
     throw error;
@@ -156,7 +154,6 @@ export const updateRoutine = async (routineId, name, goal, token) => {
     );
 
     let data = await response.json();
-    console.log(data, "updated now");
     return data;
   } catch (error) {
     throw error;

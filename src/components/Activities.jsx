@@ -7,7 +7,6 @@ const Activities = () => {
 
   async function publicActivities() {
     let allActivities = await getAllActivities();
-    console.log(activities);
     setActivities(allActivities);
   }
 

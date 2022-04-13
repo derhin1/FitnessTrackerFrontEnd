@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import { login } from "../api";
 import useAuth from "../hooks/useAuth";
 
-
 const Login = ({
   username,
   setUsername,
@@ -11,20 +10,20 @@ const Login = ({
   setPassword,
   setLoginState,
 }) => {
-  const {user} = useAuth();
+  const { user } = useAuth();
   const history = useHistory();
   const [displayError, setDisplayError] = useState(false);
-  const {setToken} = useAuth();
-  
+  const { setToken } = useAuth();
+
   async function loginToken() {
     const response = await login(username, password);
     // {
     //   response.token ? localStorage.setItem("token", response.token) : null;
     // }
 
-    if (response.token){
-      localStorage.setItem("token", response.token) 
-      setToken(response.token)
+    if (response.token) {
+      localStorage.setItem("token", response.token);
+      setToken(response.token);
     }
     setLoginState(true);
   }
@@ -34,8 +33,7 @@ const Login = ({
       loginToken();
       setDisplayError(false);
       history.push("/home");
-      console.log(user)
-      
+
       setUsername("");
       setPassword("");
     } else {

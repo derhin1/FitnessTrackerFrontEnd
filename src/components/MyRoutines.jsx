@@ -15,7 +15,6 @@ const MyRoutines = ({ loginState }) => {
   function handleClick() {
     if (loginState) {
       setRoutineForm(true);
-      console.log(user.username);
     } else {
       setRoutineForm(false);
       console.log(myRoutines);

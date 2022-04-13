@@ -16,7 +16,10 @@ const MySingleRoutine = ({ routine }) => {
   const [updateActivity, setUpdateActivity] = useState(false);
   const [activitiesList, setActivitiesList] = useState([]);
   const [activities, setActivities] = useState("");
+  const [activityRoutine, setActivityRoutine] = useState("");
   const [duration, setDuration] = useState("");
+  const [updateDuration, setUpdateDuration] = useState("");
+  const [updateCount, setUpdateCount] = useState("");
   const [count, setCount] = useState("");
   const { token } = useAuth();
 
@@ -62,7 +65,6 @@ const MySingleRoutine = ({ routine }) => {
   }
 
   function handleEdit() {
-    console.log(routine.id, "routineID");
     setEdit(true);
   }
 
@@ -100,7 +102,7 @@ const MySingleRoutine = ({ routine }) => {
               setActivities(event.target.value);
             }}
           >
-            {/* <option value="any">Any</option> */}
+            <option value="null"></option>
             {activitiesList.map((activity, index) => {
               return (
                 <option key={index} value={activity.id}>
@@ -141,24 +143,31 @@ const MySingleRoutine = ({ routine }) => {
 
   function updateActivityForm() {
     async function handleSubmit() {
-      await updateRoutineActivity(count, duration, token);
+      console.log(activityRoutine, "activityRoutine");
+      await updateRoutineActivity(
+        activityRoutine,
+        updateCount,
+        updateDuration,
+        token
+      );
     }
     return (
       <>
         <fieldset>
           <label>Update Activity: </label>
           <select
-            name="activities"
+            name="updateActivities"
             id="select-activities"
-            value={activities}
+            value={activityRoutine}
             onChange={(event) => {
-              setActivities(event.target.value);
+              console.log(event.target.value);
+              setActivityRoutine(event.target.value);
             }}
           >
-            {/* <option value="any">Any</option> */}
-            {activitiesList.map((activity, index) => {
+            <option value="null"></option>
+            {routine.activities.map((activity, index) => {
               return (
-                <option key={index} value={activity.id}>
+                <option key={index} value={activity.routineActivityId}>
                   {activity.name}
                 </option>
               );
@@ -172,19 +181,19 @@ const MySingleRoutine = ({ routine }) => {
           >
             <input
               type="text"
-              value={duration}
+              value={updateDuration}
               placeholder="Duration"
               onChange={(event) => {
-                setDuration(event.target.value);
+                setUpdateDuration(event.target.value);
               }}
             ></input>
 
             <input
               type="text"
-              value={count}
+              value={updateCount}
               placeholder="Count"
               onChange={(event) => {
-                setCount(event.target.value);
+                setUpdateCount(event.target.value);
               }}
             ></input>
             <button type=" Submit">Update</button>
@@ -221,9 +230,9 @@ const MySingleRoutine = ({ routine }) => {
           );
         })}
       </span>
-      <button onClick={handleEdit}>Update</button>
+      <button onClick={handleEdit}>Update Routine</button>
       {edit && routine.id ? editForms() : null}
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Delete Routine</button>
       <button onClick={handleAddActivity}>Add Activity</button>
       <button onClick={handleUpdateActivity}>Update Activity</button>
       {addActivity && routine.id ? activityForm() : null}
