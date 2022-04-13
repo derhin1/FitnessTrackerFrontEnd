@@ -11,9 +11,6 @@ const MyRoutines = ({ loginState }) => {
   const [success, setSuccess] = useState(false);
   const { token, user } = useAuth();
   const [myRoutines, setMyRoutines] = useState([]);
-  const [edit, setEdit] = useState(false);
-  const [updateRoutineName, setUpdateRoutineName] = useState("");
-  const [updateRoutineGoal, setUpdateRoutineGoal] = useState("");
 
   function handleClick() {
     if (loginState) {
@@ -49,39 +46,6 @@ const MyRoutines = ({ loginState }) => {
       console.log(allMyRoutines, "allMyRoutines");
       setMyRoutines(allMyRoutines);
     }
-  }
-
-  function handleEdit() {
-    setEdit(true);
-  }
-
-  function editForms() {
-    return (
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-      >
-        <input
-          type="text"
-          value={updateRoutineName}
-          placeholder="Update Routine Name"
-          onChange={(event) => {
-            setUpdateRoutineName(event.target.value);
-          }}
-        ></input>
-
-        <input
-          type="text"
-          value={updateRoutineGoal}
-          placeholder="Update Routine Goal"
-          onChange={(event) => {
-            setUpdateRoutineGoal(event.target.value);
-          }}
-        ></input>
-        <button type=" Submit">Submit</button>
-      </form>
-    );
   }
 
   useEffect(() => {
@@ -130,8 +94,6 @@ const MyRoutines = ({ loginState }) => {
           return (
             <>
               <MySingleRoutine key={i} routine={routine} />
-              {/* <button onClick={handleEdit}>Update</button> */}
-              {/* <button onClick={handleDelete}>Delete</button> */}
             </>
           );
         })}

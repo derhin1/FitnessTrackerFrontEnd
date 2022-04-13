@@ -179,3 +179,34 @@ export const deleteRoutine = async (routineId, token) => {
     throw error;
   }
 };
+
+export const addActivityToRoutine = async (
+  routineId,
+  activityId,
+  duration,
+  count,
+  token
+) => {
+  try {
+    let response = await fetch(
+      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}/activities`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          activityId,
+          count,
+          duration,
+        }),
+      }
+    );
+    let data = await response.json();
+    console.log(activityId, count, duration);
+    console.log(data, "data");
+  } catch (error) {
+    throw error;
+  }
+};
