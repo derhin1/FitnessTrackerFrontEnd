@@ -118,3 +118,21 @@ export const getMe = async (token) => {
     throw error;
   }
 };
+
+export const getPublicRoutinesByUsername = async (username) => {
+  try {
+    let response = await fetch(
+      `http://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    let data = await response.json();
+    console.log(data, "data");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
