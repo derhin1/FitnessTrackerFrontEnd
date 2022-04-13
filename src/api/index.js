@@ -136,3 +136,46 @@ export const getPublicRoutinesByUsername = async (username) => {
     throw error;
   }
 };
+
+export const updateRoutine = async (routineId, name, goal, token) => {
+  try {
+    let response = await fetch(
+      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          name,
+          goal,
+          isPublic: true,
+        }),
+      }
+    );
+
+    let data = await response.json();
+    console.log(data, "updated now");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const deleteRoutine = async (routineId, token) => {
+  try {
+    let response = await fetch(
+      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  } catch (error) {
+    throw error;
+  }
+};

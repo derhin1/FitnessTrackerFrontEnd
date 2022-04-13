@@ -1,14 +1,31 @@
 import React, { useState } from "react";
+import { updateRoutine, deleteRoutine } from "../api";
+import useAuth from "../hooks/useAuth";
 
 const MySingleRoutine = ({ routine }) => {
   const [updateRoutineName, setUpdateRoutineName] = useState("");
   const [updateRoutineGoal, setUpdateRoutineGoal] = useState("");
   const [edit, setEdit] = useState(false);
+  const [updated, setUpdated] = useState(false);
+  const { token } = useAuth();
+
   function editForms() {
+    async function updateSubmit() {
+      await updateRoutine(
+        routine.id,
+        updateRoutineName,
+        updateRoutineGoal,
+        token
+      );
+
+      setUpdateRoutineName("");
+      setUpdateRoutineGoal("");
+    }
     return (
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          updateSubmit();
         }}
       >
         <input
@@ -37,6 +54,10 @@ const MySingleRoutine = ({ routine }) => {
     setEdit(true);
   }
 
+  async function handleDelete() {
+    await deleteRoutine(routine.id, token);
+  }
+
   return (
     <div>
       <h3>{routine.name}</h3>
@@ -57,6 +78,7 @@ const MySingleRoutine = ({ routine }) => {
       </span>
       <button onClick={handleEdit}>Update</button>
       {edit && routine.id ? editForms() : null}
+      {<button onClick={handleDelete}>Delete</button>}
     </div>
   );
 };

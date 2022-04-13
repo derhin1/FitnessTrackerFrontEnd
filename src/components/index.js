@@ -7,3 +7,4 @@ export { default as SingleRoutine } from "./SingleRoutine";
 export { default as Activities } from "./Activities";
 export { default as MyRoutines } from "./MyRoutines";
 export { default as MySingleRoutine } from "./MySingleRoutine";
+export { default as SingleActivity } from "./SingleActivity";
