@@ -22,11 +22,15 @@ const MyRoutines = ({ loginState }) => {
 
   async function handleSubmit() {
     let newPost = await postNewRoutine(routineName, routineGoal, token);
+    console.log(newPost);
     if (newPost.id) {
       setSuccess(true);
       setRoutineName("");
       setRoutineGoal("");
       setRoutineForm(false);
+      newPost.activities = [];
+      newPost.creatorName = user.username;
+      setMyRoutines([newPost, ...myRoutines]);
     } else {
       setSuccess(false);
     }

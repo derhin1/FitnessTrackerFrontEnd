@@ -154,6 +154,7 @@ export const updateRoutine = async (routineId, name, goal, token) => {
     );
 
     let data = await response.json();
+    console.log(data, "data in updateRoutine");
     return data;
   } catch (error) {
     throw error;
@@ -201,6 +202,8 @@ export const addActivityToRoutine = async (
       }
     );
     let data = await response.json();
+    console.log(data, "data in addActivityRoutine");
+    return data;
   } catch (error) {
     throw error;
   }
@@ -228,6 +231,7 @@ export const updateRoutineActivity = async (
       }
     );
     let data = await response.json();
+    return data;
   } catch (error) {
     throw error;
   }
@@ -247,6 +251,31 @@ export const deleteRoutineActivity = async (routineActivityId, token) => {
     );
     let data = await response.json();
     console.log(data, "data in delete");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const createNewActivity = async (name, description, token) => {
+  try {
+    let response = await fetch(
+      "http://fitnesstrac-kr.herokuapp.com/api/activities",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          name,
+          description,
+        }),
+      }
+    );
+    let data = await response.json();
+    console.log(data, "data in createNewActivity");
+    return data;
   } catch (error) {
     throw error;
   }
