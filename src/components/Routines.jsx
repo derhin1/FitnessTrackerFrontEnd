@@ -7,7 +7,6 @@ const Routines = () => {
 
   async function publicRoutines() {
     let routines = await getAllPublicRoutines();
-    console.log(routines);
     setRoutines(routines);
   }
 
