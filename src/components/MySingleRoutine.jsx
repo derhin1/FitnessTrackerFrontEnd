@@ -24,16 +24,23 @@ const MySingleRoutine = ({ routine }) => {
   const [count, setCount] = useState("");
   const [deleteActivityRoutine, setDeleteActivityRoutine] = useState("");
   const [deleteActivity, setDeleteActivity] = useState(false);
+  const [updateError, setUpdateError] = useState(false);
+  const [addActivityError, setAddActivityError] = useState(false);
   const { token } = useAuth();
 
   function editForms() {
     async function updateSubmit() {
-      await updateRoutine(
+      let response = await updateRoutine(
         routine.id,
         updateRoutineName,
         updateRoutineGoal,
         token
       );
+      if (response.error) {
+        setUpdateError(true);
+      } else {
+        setUpdateError(false);
+      }
 
       setUpdateRoutineName("");
       setUpdateRoutineGoal("");
@@ -89,14 +96,20 @@ const MySingleRoutine = ({ routine }) => {
 
   function activityForm() {
     async function handleSubmit() {
-      await addActivityToRoutine(
+      let response = await addActivityToRoutine(
         routine.id,
         activities,
         duration,
         count,
         token
       );
+      if (response.error) {
+        setAddActivityError(true);
+      } else {
+        setAddActivityError(false);
+      }
     }
+
     return (
       <>
         <fieldset>
@@ -275,13 +288,17 @@ const MySingleRoutine = ({ routine }) => {
       </span>
       <button onClick={handleEdit}>Update Routine</button>
       {edit && routine.id ? editForms() : null}
+      {/* {updateError ? <div>Routine already exists!</div> : null} */}
       <button onClick={handleDelete}>Delete Routine</button>
       <button onClick={handleAddActivity}>Add Activity</button>
+      {/* {addActivityError ? <div>Activity is already in the routine!</div> : null} */}
       <button onClick={handleUpdateActivity}>Update Activity</button>
       <button onClick={handleDeleteActivity}>Delete Activity</button>
       {addActivity && routine.id ? activityForm() : null}
       {updateActivity && routine.id ? updateActivityForm() : null}
       {deleteActivity && routine.id ? deleteActivityForm() : null}
+      {addActivityError ? <div>Activity is already in the routine!</div> : null}
+      {updateError ? <div>Routine already exists!</div> : null}
     </div>
   );
 };
