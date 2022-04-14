@@ -17,7 +17,6 @@ const MyRoutines = ({ loginState }) => {
       setRoutineForm(true);
     } else {
       setRoutineForm(false);
-      console.log(myRoutines);
     }
   }
 
@@ -41,8 +40,6 @@ const MyRoutines = ({ loginState }) => {
   async function loadRoutines() {
     if (user.username) {
       let allMyRoutines = await getPublicRoutinesByUsername(user.username);
-      console.log(user.username);
-      console.log(allMyRoutines, "allMyRoutines");
       setMyRoutines(allMyRoutines);
     }
   }
