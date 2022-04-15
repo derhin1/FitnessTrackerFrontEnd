@@ -1,12 +1,15 @@
 * {
-    background-color: rgb(220, 247, 247);
-
+    background-color: rgb(126, 166, 26);
 }
 
 h2 {
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
-    color: rgb(90, 46, 99);
+    font-weight: 700;
+    font-size: 400%;
+    color:aliceblue;
+    text-align: center;
+    border: 1px solid whitesmoke ;
+    border-radius: 7px;
 }
 #app {
     display: flex;
@@ -16,11 +19,15 @@ h2 {
     align-content: center;
     
 }
+
 h1 {
+    color: rgb(210, 29, 134);
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     display: flex;
-    justify-content: center;
-    color: rgb(122, 9, 130);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content:left;
+    margin-left: 40px;
+    font-weight: 0px;
+
 }
 
 div {
@@ -29,6 +36,35 @@ div {
     
 }
 
+
 a:link {
+    font-family:Arial, Helvetica, sans-serif;
     text-decoration: none;
+    font-size: 22px;
+    font-weight:bolder;
+    line-height: 1.3em;
+    display: inline;
+    padding-right: 30px;
+    
   }
+
+div #navbar {
+    text-align: center;
+    position:relative;
+    width: 800px;
+    height: 300px;
+  }
+
+form > button {
+    float: center;
+    margin-top: 30px;
+    font-weight:bolder;
+  }
+
+  div.box {
+      border: 1px solid black;
+
+  }
+
+
+  
