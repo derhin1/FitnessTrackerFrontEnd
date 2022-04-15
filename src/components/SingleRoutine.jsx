@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const SingleRoutine = ({ routine }) => {
   return (
-    <div>
+    <div className = "box">
       <h3>{routine.name}</h3>
       <span>Goal: {routine.goal}</span>
       <span>By: {routine.creatorName}</span>

@@ -1,3 +1,4 @@
+import React from "react";
 import AuthContext from "../AuthContext";
 import { useState, useEffect } from "react";
 import { getMe } from "../api";
