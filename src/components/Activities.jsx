@@ -43,7 +43,7 @@ const Activities = () => {
     <>
       <h1>All Activities</h1>
       {user.username ? (
-        <a onClick={handleClick}> Add A New Activity! </a>
+        <a onClick={handleClick}> <p>Add A New Activity!</p> </a>
       ) : null}
       {addActivity ? (
         <form

@@ -26,7 +26,6 @@ h1 {
     display: flex;
     justify-content:left;
     margin-left: 40px;
-    font-weight: 0px;
 
 }
 
@@ -65,5 +64,16 @@ form > button {
       border: 1px solid white;
 
   }
+
+ #activity {
+     font-size: 20px;
+
+  }
+  p {
+      font-weight: bold;
+      font-size: 20px;
+      margin-left: 40px;
+  }
+  
 
 
