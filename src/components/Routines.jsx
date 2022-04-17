@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllPublicRoutines, postNewRoutine } from "../api";
+import { getAllPublicRoutines } from "../api";
 import { SingleRoutine } from "./";
 
 const Routines = () => {

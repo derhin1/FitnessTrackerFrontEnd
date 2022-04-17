@@ -10,16 +10,12 @@ const Login = ({
   setPassword,
   setLoginState,
 }) => {
-  const { user } = useAuth();
   const history = useHistory();
   const [displayError, setDisplayError] = useState(false);
   const { setToken } = useAuth();
 
   async function loginToken() {
     const response = await login(username, password);
-    // {
-    //   response.token ? localStorage.setItem("token", response.token) : null;
-    // }
 
     if (response.token) {
       localStorage.setItem("token", response.token);

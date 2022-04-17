@@ -22,7 +22,6 @@ const MyRoutines = ({ loginState }) => {
 
   async function handleSubmit() {
     let newPost = await postNewRoutine(routineName, routineGoal, token);
-    console.log(newPost);
     if (newPost.id) {
       setSuccess(true);
       setRoutineName("");
@@ -58,8 +57,11 @@ const MyRoutines = ({ loginState }) => {
 
   return (
     <>
-    <h1>My Routines</h1>
-      <a className="add_new" onClick={handleClick}> <p>Add A New Routine!</p> </a>
+      <h1>My Routines</h1>
+      <a href="#" className="add_new" onClick={handleClick}>
+        {" "}
+        <p>Add A New Routine!</p>{" "}
+      </a>
       {routineForm ? (
         <form
           onSubmit={(event) => {
@@ -88,8 +90,12 @@ const MyRoutines = ({ loginState }) => {
         </form>
       ) : null}
       {error ? <div>Routine Name already exists! Try again.</div> : null}
-      {success ? <div><p>New routine has been added!</p></div> : null}
-      <div className = "new_routine">
+      {success ? (
+        <div>
+          <p>New routine has been added!</p>
+        </div>
+      ) : null}
+      <div className="new_routine">
         {myRoutines.map((routine, i) => {
           return (
             <>
