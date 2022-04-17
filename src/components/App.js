@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Navbar, Login, Register, Routines, Activities, MyRoutines } from "./";
+import {
+  Navbar,
+  Login,
+  Register,
+  Routines,
+  Activities,
+  MyRoutines,
+  Home,
+} from "./";
 import useAuth from "../hooks/useAuth";
 const App = () => {
   const [username, setUsername] = useState("");
@@ -24,6 +32,9 @@ const App = () => {
     <div>
       <Navbar setLoginState={setLoginState} loginState={loginState} />
       <Switch>
+        <Route path="/Home">
+          <Home />
+        </Route>
         <Route path="/Login">
           <Login
             username={username}
@@ -51,9 +62,11 @@ const App = () => {
         <Route path="/MyRoutines">
           <MyRoutines loginState={loginState} />
         </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
     </div>
-      
   );
 };
 

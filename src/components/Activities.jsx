@@ -11,12 +11,10 @@ const Activities = () => {
   const [error, setError] = useState(false);
   const { token, user } = useAuth();
 
-  
   async function publicActivities() {
     let allActivities = await getAllActivities();
     setActivities(allActivities);
   }
-  
 
   function handleClick() {
     setAddActivity(true);
@@ -28,7 +26,6 @@ const Activities = () => {
       activityDescription,
       token
     );
-    console.log(response, "response");
     if (response.error) {
       setError(true);
     } else {
@@ -45,7 +42,10 @@ const Activities = () => {
     <>
       <h1>All Activities</h1>
       {user.username ? (
-        <a class ="add_new" onClick={handleClick} > <p>Add A New Activity!</p> </a>
+        <a href="#" class="add_new" onClick={handleClick}>
+          {" "}
+          <p>Add A New Activity!</p>{" "}
+        </a>
       ) : null}
       {addActivity ? (
         <form

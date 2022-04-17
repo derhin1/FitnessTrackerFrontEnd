@@ -96,3 +96,44 @@ form > button {
  }
 
 
+.welcomeMessage {
+    font-size: 2rem;
+}
+
+#firstMessage{
+    justify-content: center;
+}
+
+#secondMessage{
+    border: none;   
+    text-align: center;
+}
+
+#loginNotice{
+    display: flex;
+    justify-content: center;
+    font-family: Arial,Helvetica,sans-serif;
+    color:aliceblue;
+    font-size: 1.2rem;
+}
+
+#loginNotice {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+
+#greeting {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+
+#image {
+    width: 800px;
+    height: 500px;
+}
