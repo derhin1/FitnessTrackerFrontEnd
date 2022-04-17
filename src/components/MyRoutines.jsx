@@ -59,7 +59,7 @@ const MyRoutines = ({ loginState }) => {
   return (
     <>
     <h1>My Routines</h1>
-      <a onClick={handleClick}> <p>Add A New Routine!</p> </a>
+      <a className="add_new" onClick={handleClick}> <p>Add A New Routine!</p> </a>
       {routineForm ? (
         <form
           onSubmit={(event) => {
@@ -88,7 +88,7 @@ const MyRoutines = ({ loginState }) => {
         </form>
       ) : null}
       {error ? <div>Routine Name already exists! Try again.</div> : null}
-      {success ? <div>New routine has been added!</div> : null}
+      {success ? <div><p>New routine has been added!</p></div> : null}
       <div>
         {myRoutines.map((routine, i) => {
           return (

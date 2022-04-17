@@ -11,10 +11,12 @@ const Activities = () => {
   const [error, setError] = useState(false);
   const { token, user } = useAuth();
 
+  
   async function publicActivities() {
     let allActivities = await getAllActivities();
     setActivities(allActivities);
   }
+  
 
   function handleClick() {
     setAddActivity(true);
@@ -43,7 +45,7 @@ const Activities = () => {
     <>
       <h1>All Activities</h1>
       {user.username ? (
-        <a onClick={handleClick}> <p>Add A New Activity!</p> </a>
+        <a class ="add_new" onClick={handleClick} > <p>Add A New Activity!</p> </a>
       ) : null}
       {addActivity ? (
         <form
