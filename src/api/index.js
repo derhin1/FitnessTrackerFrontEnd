@@ -1,7 +1,7 @@
 export const register = async (username, password) => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/users/register",
+      "https://fitnesstrac-kr.herokuapp.com/api/users/register",
       {
         method: "POST",
         headers: {
@@ -23,7 +23,7 @@ export const register = async (username, password) => {
 export const login = async (username, password) => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/users/login",
+      "https://fitnesstrac-kr.herokuapp.com/api/users/login",
       {
         method: "POST",
         headers: {
@@ -45,7 +45,7 @@ export const login = async (username, password) => {
 export const getAllPublicRoutines = async () => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/routines",
+      "https://fitnesstrac-kr.herokuapp.com/api/routines",
       {
         headers: {
           "Content-Type": "application/json",
@@ -62,7 +62,7 @@ export const getAllPublicRoutines = async () => {
 export const getAllActivities = async () => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/activities",
+      "https://fitnesstrac-kr.herokuapp.com/api/activities",
       {
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const getAllActivities = async () => {
 export const postNewRoutine = async (name, goal, token) => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/routines",
+      "https://fitnesstrac-kr.herokuapp.com/api/routines",
       {
         method: "POST",
         headers: {
@@ -103,7 +103,7 @@ export const postNewRoutine = async (name, goal, token) => {
 export const getMe = async (token) => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/users/me",
+      "https://fitnesstrac-kr.herokuapp.com/api/users/me",
       {
         headers: {
           "Content-Type": "application/json",
@@ -121,7 +121,7 @@ export const getMe = async (token) => {
 export const getPublicRoutinesByUsername = async (username) => {
   try {
     let response = await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`,
+      `https://fitnesstrac-kr.herokuapp.com/api/users/${username}/routines`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -138,7 +138,7 @@ export const getPublicRoutinesByUsername = async (username) => {
 export const updateRoutine = async (routineId, name, goal, token) => {
   try {
     let response = await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
+      `https://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
       {
         method: "PATCH",
         headers: {
@@ -163,7 +163,7 @@ export const updateRoutine = async (routineId, name, goal, token) => {
 export const deleteRoutine = async (routineId, token) => {
   try {
     await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
+      `https://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}`,
       {
         method: "DELETE",
         headers: {
@@ -186,7 +186,7 @@ export const addActivityToRoutine = async (
 ) => {
   try {
     let response = await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}/activities`,
+      `https://fitnesstrac-kr.herokuapp.com/api/routines/${routineId}/activities`,
       {
         method: "POST",
         headers: {
@@ -215,7 +215,7 @@ export const updateRoutineActivity = async (
 ) => {
   try {
     let response = await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/routine_activities/${routineActivityId}`,
+      `https://fitnesstrac-kr.herokuapp.com/api/routine_activities/${routineActivityId}`,
       {
         method: "PATCH",
         headers: {
@@ -238,7 +238,7 @@ export const updateRoutineActivity = async (
 export const deleteRoutineActivity = async (routineActivityId, token) => {
   try {
     let response = await fetch(
-      `http://fitnesstrac-kr.herokuapp.com/api/routine_activities/${routineActivityId}`,
+      `https://fitnesstrac-kr.herokuapp.com/api/routine_activities/${routineActivityId}`,
       {
         method: "DELETE",
         headers: {
@@ -257,7 +257,7 @@ export const deleteRoutineActivity = async (routineActivityId, token) => {
 export const createNewActivity = async (name, description, token) => {
   try {
     let response = await fetch(
-      "http://fitnesstrac-kr.herokuapp.com/api/activities",
+      "https://fitnesstrac-kr.herokuapp.com/api/activities",
       {
         method: "POST",
         headers: {
