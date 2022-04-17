@@ -2,9 +2,9 @@ import React from "react";
 
 const SingleActivity = ({ activity }) => {
   return (
-    <div key={activity.id}>
-      <span> Activity: {activity.name}</span>
-      <span>Description: {activity.description}</span>
+    <div className = "new_routine" key={activity.id}>
+      <span><b> Activity </b>: {activity.name}</span><br></br>
+      <span><b> Description </b>: {activity.description}</span>
     </div>
   );
 };
