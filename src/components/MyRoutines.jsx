@@ -89,7 +89,7 @@ const MyRoutines = ({ loginState }) => {
       ) : null}
       {error ? <div>Routine Name already exists! Try again.</div> : null}
       {success ? <div><p>New routine has been added!</p></div> : null}
-      <div>
+      <div className = "new_routine">
         {myRoutines.map((routine, i) => {
           return (
             <>
